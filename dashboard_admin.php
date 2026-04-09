@@ -214,35 +214,117 @@ if (isset($_GET['hapus'])) {
     <?php endif; ?>
 
 
-    <div class="container-fluid">
+    <div class="container-fluid alert alert-info">
         <div class="card">
             <div class="card-body">
             <div class="card-text text-center">
                 <h1>Data</h1>
             </div>
             <div class="row">
-                <div class="col-sm-6 mb-3 mb-sm-0 g-2">
-                    <div class="card">
+                <div class="col-md-4 mb-3 mb-sm-0 g-2">
+                    <div class="card text-white bg-primary">
                     <div class="card-body text-center">
                         <h5 class="card-title">Menu</h5>
-                        <p class="card-text fw-bold">1 <i class="bi bi-fork-knife"></i></p>
-                        <a href="#" class="btn btn-primary">Lebih lanjut</a>
+                        <p class="card-text fw-bold">25 <i class="bi bi-fork-knife"></i></p>                        
                     </div>
                     </div>
                 </div>
-                <div class="col-sm-6 mb-3 mb-sm-0 g-2">
-                    <div class="card">
+                <div class="col-md-4 mb-3 mb-sm-0 g-2">
+                    <div class="card text-white bg-success">
                     <div class="card-body text-center">
                         <h5 class="card-title">Galeri</h5>
-                        <p class="card-text fw-bold">5 <i class="bi bi-image"></i></p>
-                        <a href="#" class="btn btn-primary">Lebih lanjut</a>
+                        <p class="card-text fw-bold">15 <i class="bi bi-image"></i></p>                        
                     </div>
                     </div>
                 </div>
+                <div class="col-md-4 mb-3 mb-sm-0 g-2">
+                    <div class="card text-white bg-warning">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ulasan</h5>
+                        <p class="card-text fw-bold">10 <i class="bi bi-image"></i></p>                        
+                    </div>
+                    </div>
+                </div>
+            </div> 
             </div>   
-            </div>         
+            
+            
+            <!-- form menu -->
+             <div class="row">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Tambah Menu</h2>
+                            <form action="">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" placeholder="Nama Menu">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-6">
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Coffee</option>
+                                            <option value="">Food</option>
+                                            <option value="">Snack</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="number" name="" id="" placeholder="Harga">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <textarea name="" id="" row="20" class="form-control">
+
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input class="form-control" type="file" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <button class="form-control" type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Data Menu</h2>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><img src="" alt="Steak.png"></th>
+                                        <th>Food</th>
+                                        <th>Rp.25.000</th>
+                                        <th><button type="reset" class="btn btn-danger">Delete</button></th>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
         </div>
     </div>
+
+
 
     <!-- Tabel Daftar User -->
     <div class="kartu-tabel d-none">
