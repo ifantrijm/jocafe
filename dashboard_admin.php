@@ -213,7 +213,7 @@ if (isset($_GET['hapus'])) {
         <div class="notif notif-error">⚠️ <?= $notif ?></div>
     <?php endif; ?>
 
-
+    
     <div class="container-fluid alert alert-info">
         <div class="card">
             <div class="card-body">
@@ -222,7 +222,7 @@ if (isset($_GET['hapus'])) {
             </div>
             <div class="row">
                 <div class="col-md-4 mb-3 mb-sm-0 g-2">
-                    <div class="card text-white bg-primary">
+                    <div class="card text-white bg-primary" onclick="showForm('menu')">
                     <div class="card-body text-center">
                         <h5 class="card-title">Menu</h5>
                         <p class="card-text fw-bold">25 <i class="bi bi-fork-knife"></i></p>                        
@@ -230,7 +230,7 @@ if (isset($_GET['hapus'])) {
                     </div>
                 </div>
                 <div class="col-md-4 mb-3 mb-sm-0 g-2">
-                    <div class="card text-white bg-success">
+                    <div class="card text-white bg-success" onclick="showForm('galeri')">
                     <div class="card-body text-center">
                         <h5 class="card-title">Galeri</h5>
                         <p class="card-text fw-bold">15 <i class="bi bi-image"></i></p>                        
@@ -238,7 +238,7 @@ if (isset($_GET['hapus'])) {
                     </div>
                 </div>
                 <div class="col-md-4 mb-3 mb-sm-0 g-2">
-                    <div class="card text-white bg-warning">
+                    <div class="card text-white bg-warning" onclick="showForm('ulasan')">
                     <div class="card-body text-center">
                         <h5 class="card-title">Ulasan</h5>
                         <p class="card-text fw-bold">10 <i class="bi bi-image"></i></p>                        
@@ -250,7 +250,7 @@ if (isset($_GET['hapus'])) {
             
             
             <!-- form menu -->
-             <div class="row">
+             <div class="row d-none" id="formMenu">
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-body">
@@ -275,7 +275,7 @@ if (isset($_GET['hapus'])) {
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-12">
-                                        <textarea name="" id="" row="20" class="form-control">
+                                        <textarea name="" id="" rows="3" class="form-control">
 
                                         </textarea>
                                     </div>
@@ -286,7 +286,7 @@ if (isset($_GET['hapus'])) {
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <button class="form-control" type="submit" class="btn btn-primary">Simpan</button>
+                                    <button class="form-control btn btn-primary" type="submit">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -320,6 +320,151 @@ if (isset($_GET['hapus'])) {
                     </div>
                 </div>
              </div>
+            
+            <!-- form galeri -->
+             <div class="row d-none" id="formGaleri">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Tambah galeri</h2>
+                            <form action="">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" placeholder="Nama galeri">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-6">
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Coffee</option>
+                                            <option value="">Food</option>
+                                            <option value="">Snack</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="number" name="" id="" placeholder="Harga">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <textarea name="" id="" rows="3" class="form-control">
+
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input class="form-control" type="file" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <button class="form-control btn btn-primary" type="submit">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Data galeri</h2>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><img src="" alt="Steak.png"></th>
+                                        <th>Food</th>
+                                        <th>Rp.25.000</th>
+                                        <th><button type="reset" class="btn btn-danger">Delete</button></th>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            
+            <!-- form ulasan -->
+             <div class="row d-none" id="formUlasan">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Tambah ulasan</h2>
+                            <form action="">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" placeholder="Nama ulasan">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-6">
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Coffee</option>
+                                            <option value="">Food</option>
+                                            <option value="">Snack</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="number" name="" id="" placeholder="Harga">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <textarea name="" id="" rows="3" class="form-control">
+
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <input class="form-control" type="file" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <button class="form-control btn btn-primary" type="submit">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text text-primary">Data ulasan</h2>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><img src="" alt="Steak.png"></th>
+                                        <th>Food</th>
+                                        <th>Rp.25.000</th>
+                                        <th><button type="reset" class="btn btn-danger">Delete</button></th>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
 
         </div>
     </div>
@@ -377,6 +522,25 @@ if (isset($_GET['hapus'])) {
         </table>
     </div>
 
+    <script>
+        function showForm(type){
+            //menyembunyikan semua
+            document.getElementById("formMenu").classList.add("d-none");
+            document.getElementById("formGaleri").classList.add("d-none");
+            document.getElementById("formUlasan").classList.add("d-none");
+
+            // menampilkan sesuai klik
+            if(type === 'menu'){
+                document.getElementById("formMenu").classList.remove("d-none");
+            }
+            else if(type === 'galeri'){
+                document.getElementById("formGaleri").classList.remove("d-none");
+            }
+            else if(type === 'ulasan'){
+                document.getElementById("formUlasan").classList.remove("d-none");
+            }
+        }
+    </script>
 </div>
 </body>
 </html>
