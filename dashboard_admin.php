@@ -48,14 +48,17 @@ if (isset($_GET['hapus'])) {
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ecf0f1;
+            background-color: var(--bg) !important;
+            background-image: url('https://images.unsplash.com/photo-1655182413225-695cc7ed0411?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         /* ---- NAVBAR ---- */
         .navbar {
-            background-color: #2c3e50;
-            color: white;
+            background-color: #1a1f2b;
+            color: #f39c12;
             padding: 14px 25px;
             display: flex;
             justify-content: space-between;
@@ -87,8 +90,8 @@ if (isset($_GET['hapus'])) {
 
         /* ---- KARTU SELAMAT DATANG ---- */
         .kartu-welcome {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
+            background: linear-gradient(135deg, #2c3e50, #1a1f2b);
+            color: #f39c12;
             padding: 22px 25px;
             border-radius: 8px;
             margin-bottom: 25px;
