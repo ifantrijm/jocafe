@@ -73,7 +73,7 @@ $pending         =3;
         /*Info Cards*/
         .info-card {
             background-color: var(--card);
-            padding: 25pc;
+            padding: 25px;
             border-radius: 12px;
             margin-bottom: 35px;
             border-left: 5px solid var(--accent);
@@ -106,7 +106,7 @@ $pending         =3;
 
 <nav class="navbar">
     <div class="logo">Jo Cafe Dashboard</div>
-    <a href="#" class="btn-logout">Logout</a>
+    <a href="logout.php" class="btn-logout">Logout</a>
 </nav>
 
 <div class="container">
