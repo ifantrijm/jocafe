@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div><?php
-// =============================================
-// FILE: koneksi.php
-// Fungsi: Menghubungkan ke database MySQL
-// =============================================
+<?php
+// ==============================================
+// koneksi.php — JoCafe
+// ==============================================
 
-$host     = "localhost";
-$user     = "root";
-$password = "";        // kosong jika belum diset password di XAMPP
-$database = "db_login"; // sesuaikan nama database kamu
+declare(strict_types=1);
 
-// Membuat koneksi
-$koneksi = mysqli_connect($host, $user, $password, $database);
+const DB_HOST = 'localhost';
+const DB_USER = 'root';
+const DB_PASS = '';
+const DB_NAME = 'db_login';
 
-// Cek apakah koneksi berhasil
+$koneksi = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
 if (!$koneksi) {
-    die("Koneksi GAGAL: " . mysqli_connect_error());
+    http_response_code(500);
+    die('Koneksi database gagal: ' . mysqli_connect_error());
 }
-// Jika berhasil, tidak ada output apapun (normal)
-?></div>
-</body>
-</html>sdas
+
+mysqli_set_charset($koneksi, 'utf8mb4');
