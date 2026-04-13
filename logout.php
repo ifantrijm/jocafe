@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <div></div>
+    <div><?php
+// =============================================
+// FILE: logout.php
+// Fungsi: Menghancurkan session dan redirect ke login
+// =============================================
+
+session_start();       // Mulai session agar bisa diakses
+session_destroy();     // Hancurkan semua data session (user keluar)
+
+header("Location: login.php");  // Kembali ke halaman login
+exit();
+?></div>
 </body>
-</html>sdasd
+</html>sdas
