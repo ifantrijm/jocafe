@@ -60,100 +60,125 @@ if (isset($_POST['btn_login'])) {
     <meta charset="UTF-8">
     <title>Login JoCaffe</title>
     <style>
-        /* ---- RESET & BASE ---- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ---- RESET & BASE ---- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: Arial;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    :root {
+        --bg: #0f121a; 
+        --card: #1a1f2b; 
+        --accent: #f39c12; 
+        --white: #ffffff; 
+        --gray: #bdc3c7;
+    }
 
-        /* ---- CARD ---- */
-        .card {
-            background: white;
-            padding: 35px 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 380px;
-        }
+    body {
+        font-family: Arial;
+        background-color: var(--bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: var(--white);
+    }
 
-        .card h2 {
-            text-align: center;
-            margin-bottom: 8px;
-            color: #2c3e50;
-        }
+    /* ---- CARD ---- */
+    .card {
+        background: var(--card);
+        padding: 35px 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        width: 100%;
+        max-width: 380px;
+    }
 
-        .card p.subtitle {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
+    .card h2 {
+        text-align: center;
+        margin-bottom: 8px;
+        color: var(--accent);
+    }
 
-        /* ---- FORM ---- */
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #34495e;
-        }
+    .card p.subtitle {
+        text-align: center;
+        color: var(--gray);
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
+    /* ---- FORM ---- */
+    label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--white);
+    }
 
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #3498db;
-            outline: none;
-        }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-bottom: 18px;
+        background-color: #2a2f3a;
+        color: var(--white);
+    }
 
-        button {
-            width: 100%;
-            padding: 11px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 15px;
-            cursor: pointer;
-        }
+    input::placeholder {
+        color: var(--gray);
+    }
 
-        button:hover { background-color: #2980b9; }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: var(--accent);
+        outline: none;
+    }
 
-        /* ---- PESAN ERROR ---- */
-        .pesan-error {
-            background-color: #fdecea;
-            color: #c0392b;
-            border: 1px solid #e74c3c;
-            padding: 10px 12px;
-            border-radius: 5px;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
+    button {
+        width: 100%;
+        padding: 11px;
+        background-color: var(--accent);
+        color: var(--white);
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        /* ---- LINK REGISTER ---- */
-        .link-register {
-            text-align: center;
-            margin-top: 18px;
-            font-size: 13px;
-        }
+    button:hover { 
+        background-color: #d68910; 
+    }
 
-        .link-register a { color: #3498db; text-decoration: none; }
-        .link-register a:hover { text-decoration: underline; }
-    </style>
+    /* ---- PESAN ERROR ---- */
+    .pesan-error {
+        background-color: #2c1b1b;
+        color: #e74c3c;
+        border: 1px solid #e74c3c;
+        padding: 10px 12px;
+        border-radius: 5px;
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    /* ---- LINK REGISTER ---- */
+    .link-register {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 13px;
+        color: var(--gray);
+    }
+
+    .link-register a { 
+        color: var(--accent); 
+        text-decoration: none; 
+    }
+
+    .link-register a:hover { 
+        text-decoration: underline; 
+    }
+</style>
 </head>
 <body>
 
