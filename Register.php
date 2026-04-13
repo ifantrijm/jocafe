@@ -16,7 +16,7 @@ if (isset($_POST['btn_register'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     $konfirm  = trim($_POST['konfirmasi']);
-    $role     = $_POST['role'];  // 'User' atau 'Admin'
+    $role     = $_POST['role'];  // 'Manajer' atau 'Admin'
 
     // --- Validasi ---
     if (empty($username) || empty($password) || empty($konfirm)) {
@@ -67,150 +67,176 @@ if (isset($_POST['btn_register'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title> Jo Caffe-Register</title>
+    <title>Jo Caffe-Register</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg: #0f121a;
+    --card: #1a1f2b;
+    --accent: #f39c12;
+    --white: #ffffff;
+    --gray: #bdc3c7;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #cd9453;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .card {
-            background: white;
-            padding: 35px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 400px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        .card h2 {
-            text-align: center;
-            margin-bottom: 8px;
-            color: #6f4e37;
-        }
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 35px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    width: 100%;
+    max-width: 400px;
+    color: var(--white);
+}
 
-        .card p.subtitle {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
+/* JUDUL */
+.card h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
 
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #34495e;
-        }
+/* SUBTITLE */
+.card p.subtitle {
+    text-align: center;
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
 
-        input[type="text"],
-        input[type="password"],
-        select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
+/* LABEL */
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--gray);
+}
 
-        input:focus, select:focus {
-            border-color: #6f4e37;
-            outline: none;
-        }
+/* INPUT */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #2c3445;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    background-color: #11151f;
+    color: var(--white);
+}
 
-        button {
-            width: 100%;
-            padding: 11px;
-            background-color: #6f4e37;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 15px;
-            cursor: pointer;
-        }
+input:focus, select:focus {
+    border-color: var(--accent);
+    outline: none;
+}
 
-        button:hover { background-color: #5a3e2b; }
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 11px;
+    background-color: var(--accent);
+    color: black;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
 
-        .pesan-error {
-            background-color: #fdecea;
-            color: #c0392b;
-            border: 1px solid #e74c3c;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
+button:hover {
+    background-color: #d68910;
+}
 
-        .pesan-sukses {
-            background-color: #eafaf1;
-            color: #1e8449;
-            border: 1px solid #27ae60;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
+/* PESAN */
+.pesan-error {
+    background-color: #2c1f1f;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
 
-        .link-login {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 13px;
-        }
+.pesan-sukses {
+    background-color: #1f2c22;
+    color: #2ecc71;
+    border: 1px solid #27ae60;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
 
-        .link-login a { color: #6f4e37; text-decoration: none; }
-        .link-login a:hover { text-decoration: underline; }
+/* LINK */
+.link-login {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
 
-        /* Info hint di bawah input */
-        .hint {
-            font-size: 11px;
-            color: #95a5a6;
-            margin-top: -12px;
-            margin-bottom: 14px;
-        }
+.link-login a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.link-login a:hover {
+    text-decoration: underline;
+}
+
+/* HINT */
+.hint {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: -12px;
+    margin-bottom: 14px;
+}
     </style>
+
 </head>
+
 <body>
 
 <div class="card">
     <h2>📝 Jo Caffe</h2>
     <p class="subtitle">Daftar & nikmati menu terbaik kami</p>
 
-    <!-- Tampilkan pesan -->
     <?php if ($pesan != "") : ?>
         <div class="pesan-<?= $jenis_pesan ?>">
             <?= ($jenis_pesan == 'sukses') ? '✅' : '⚠️' ?> <?= $pesan ?>
         </div>
     <?php endif; ?>
 
-    <!-- Form Register -->
-    <form method="POST" action="">
+    <form method="POST">
 
-        <label for="username">Nama Pengguna</label>
-        <input type="text" id="username" name="username" 
-               placeholder="Masukkan nama pengguna"
-               value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>">
+        <label>Nama Pengguna</label>
+        <input type="text" name="username"
+        value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>">
         <p class="hint">Minimal 4 karakter</p>
 
-        <label for="password">Kata Sandi</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi">
+        <label>Kata Sandi</label>
+        <input type="password" name="password">
         <p class="hint">Minimal 6 karakter</p>
 
-        <label for="konfirmasi">Konfirmasi Kata Sandi</label>
-        <input type="password" id="konfirmasi" name="konfirmasi" placeholder="Konfirmasi Kata Sandi">
+        <label>Konfirmasi Kata Sandi</label>
+        <input type="password" name="konfirmasi">
 
-        <label for="role">Daftar Sebagai</label>
-        <select id="role" name="role">
-            <option value="User">User</option>
+        <label>Daftar Sebagai</label>
+        <select name="role">
+            <option value="User">Manajer</option>
             <option value="admin">Admin</option>
-            
         </select>
 
         <button type="submit" name="btn_register">Daftar Sekarang</button>
