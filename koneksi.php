@@ -7,24 +7,24 @@
 </head>
 <body>
     <div><?php
-// ==============================================
-// koneksi.php — JoCafe
-// ==============================================
+// =============================================
+// FILE: koneksi.php
+// Fungsi: Menghubungkan ke database MySQL
+// =============================================
 
-declare(strict_types=1);
+$host     = "localhost";
+$user     = "root";
+$password = "";        // kosong jika belum diset password di XAMPP
+$database = "db_login"; // sesuaikan nama database kamu
 
-const DB_HOST = 'localhost';
-const DB_USER = 'root';
-const DB_PASS = '';
-const DB_NAME = 'db_login';
+// Membuat koneksi
+$koneksi = mysqli_connect($host, $user, $password, $database);
 
-$koneksi = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
+// Cek apakah koneksi berhasil
 if (!$koneksi) {
-    http_response_code(500);
-    die('Koneksi database gagal: ' . mysqli_connect_error());
+    die("Koneksi GAGAL: " . mysqli_connect_error());
 }
-
-mysqli_set_charset($koneksi, 'utf8mb4');</div>
+// Jika berhasil, tidak ada output apapun (normal)
+?></div>
 </body>
 </html>sdas
