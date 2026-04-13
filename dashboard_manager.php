@@ -79,7 +79,76 @@ $pending         =3;
             border-left: 5px solid var(--accent);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+        .info-card h3 { font-family: 'Dancing Script', cursive; color: var(--accent); margin-bottom: 15px; font-size: 26px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 12px 0; font-size: 14px; border-bottom: 1px solid #2c3e50; }
+        .label { color: var(--gray); width: 40%; }
+        .badge { background: var(--accent); color: #000; padding: 3px 10px; border-radius: 5px; font-weight: bold; font-size: 11px; }
+
+        /* Statistics */
+        .section-title { font-family: 'Dancing Script', cursive; color: var(--accent); font-size: 30px; margin-bottom: 20px; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-box { 
+        background: var(--card);
+        padding: 30px 20px;
+        border-radius: 15px;
+        text-align: center; 
+        border: 1px solid #2c3e50; 
+        transition: 0.4s;
+    }
+    .stat-box:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 20px rgba(243, 156, 18, 0.1); }
+    .stat-box h4 { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .stat-box .number { font-size: 40px; font-weight: bold; color: var(--accent); }
     </style>
 </head>
 <body>
+
+<nav class="navbar">
+    <div class="logo">Jo Cafe Dashboard</div>
+    <a href="#" class="btn-logout">Logout</a>
+</nav>
+
+<div class="container">
+    <header class="welcome-banner">
+    <h2>Halo, <?= htmlspecialchars($username) ?>!</h2>
+    <p style="color: var(--gray); margin-top: 10px;">Panel kendali reservasi Jo Cafe (Preview Mode).</p>   
+    </header> 
+
+ <section class="info-card">
+    <h3>📄 Data Akun</h3>
+    <table>
+        <tr>
+            <td class="label">ID Manager</td>
+            <td>#<?=$id_user?></td>
+        </tr>
+        <tr>
+            <td class="label">Nama Pengguna</td>
+            <td><?= htmlspecialchars($username) ?></td>
+        </tr>
+        <tr>
+            <td class="label">Status Akses</td>
+            <td><span class="badge">Manager</span></td>
+        </tr>
+    </table>
+</section>
+
+    <h3 class="section-title">📊 Statistik Reservasi</h3>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h4>Total</h4>
+            <div class="number"><?=$total_reservasi?></div>
+        </div>
+        <div class="stat-box">
+            <h4>Hari Ini</h4>
+            <div class="number"><?=$hari_ini?></div>
+        </div>
+        <div class="stat-box">
+            <h4>Pending</h4>
+            <div class="number" style="color: #e74c3c;"><?= $pending ?></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
