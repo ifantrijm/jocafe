@@ -235,7 +235,7 @@ button:hover {
 
         <label>Daftar Sebagai</label>
         <select name="role">
-            <option value="User">Manajer</option>
+            <option value="Manager">Manager</option>
             <option value="admin">Admin</option>
         </select>
 
