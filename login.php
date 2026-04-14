@@ -43,8 +43,8 @@ if (isset($_POST['btn_login'])) {
             // Arahkan ke halaman sesuai role
             if ($data['role'] == 'admin') {
                 header("Location: dashboard_admin.php");
-            } else if ($data['role'] == 'manajer') {
-                header("Location: dashboard_manajer.php");
+            } else if ($data['role'] == 'manager') {
+                header("Location: dashboard_manager.php");
             } 
             exit(); // Hentikan eksekusi setelah redirect
 
